@@ -12,5 +12,8 @@
 		"cloudflare": "^4.1.0",
 		"dotenv": "^16.4.7",
 		"wrangler": "^4.0.0"
+	},
+	"dependencies": {
+		"node-html-parser": "^7.0.1"
 	}
 }
