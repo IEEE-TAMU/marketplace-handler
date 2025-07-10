@@ -1,0 +1,16 @@
+{
+	"name": "marketplace-handler",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"start": "wrangler dev"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20250214.0",
+		"cloudflare": "^4.1.0",
+		"dotenv": "^16.4.7",
+		"wrangler": "^4.0.0"
+	}
+}

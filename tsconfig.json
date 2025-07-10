@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"moduleResolution": "bundler",
+		"target": "ESNext",
+		"rootDir": "src",
+		"outDir": "lib/cjs",
+		"module": "ESNext",
+		"lib": ["ESNext"],
+		"types": ["@cloudflare/workers-types/experimental"]
+	},
+	"include": ["src/**/*"]
+}
