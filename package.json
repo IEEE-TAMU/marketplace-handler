@@ -10,7 +10,7 @@
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20250214.0",
 		"cloudflare": "^4.1.0",
-		"dotenv": "^16.4.7",
+		"dotenv": "^17.0.0",
 		"wrangler": "^4.0.0"
 	},
 	"dependencies": {
