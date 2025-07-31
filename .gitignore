@@ -173,3 +173,6 @@ dist
 
 # nix stuff
 .direnv/
+
+# raw emails
+*.eml
