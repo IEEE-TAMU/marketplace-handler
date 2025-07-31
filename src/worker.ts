@@ -55,7 +55,7 @@ async function submitPayment(extractedData: any, env: Environment) {
       name: extractedData.billingName,
       amount: amount,
       tshirt_size: extractedData.tshirtSize,
-      order_id: extractedData.orderId,
+      id: extractedData.orderId,
       confirmation_code: extractedData.confirmationCode,
     };
     
