@@ -40,7 +40,7 @@ export async function parseEmailForData(rawEmail: ReadableStream<Uint8Array>): P
       }
       
       // Extract Price per item - pattern: "Price per item: $X.XX"
-      const priceMatch = textContent.match(/Price per item:\s*\$?([\d.,]+)/i);
+      const priceMatch = textContent.match(/Price per item:\s*\$?(\d+\.\d{2})/i);
       if (priceMatch) {
         extractedData.pricePerItem = `$${priceMatch[1]}`;
       }
