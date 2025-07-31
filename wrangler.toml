@@ -7,3 +7,9 @@ preview_urls = false
 
 [observability.logs]
 enabled = true
+
+[vars]
+API_BASE_URL = "https://portal.ieeetamu.org"
+
+[env.dev.vars]
+API_BASE_URL = "http://localhost:4000"
