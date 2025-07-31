@@ -174,5 +174,7 @@ dist
 # nix stuff
 .direnv/
 
-# raw emails
-*.eml
+# raw emails    
+# *.eml
+
+/test/2025
