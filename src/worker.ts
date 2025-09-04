@@ -13,7 +13,6 @@ const allowedSenders = [
 
 export default {
   async email(message: ForwardableEmailMessage, env: Environment, ctx: ExecutionContext) {
-    console.log(`Received email for ${message.to}`);
 
     // reject emails not from allowed senders
     if (!allowedSenders.includes(message.from)) {
@@ -25,7 +24,7 @@ export default {
       // Parse the email and extract data
       const extractedData = await parseEmailForData(message.raw);
       
-      console.log('Extracted email data:', JSON.stringify(extractedData, null, 2));
+      // console.log('Extracted email data:', JSON.stringify(extractedData, null, 2));
       
       // Send payment to API if we have the required data
       if (extractedData.orderId && extractedData.billingName && extractedData.tshirtSize && extractedData.pricePerItem) {
@@ -71,8 +70,8 @@ async function submitPayment(extractedData: any, env: Environment) {
     });
     
     if (response.ok) {
-      const result = await response.json();
-      console.log('Payment submitted successfully:', result);
+      // const result = await response.json();
+      // console.log('Payment submitted successfully:', JSON.stringify(result, null, 2));
     } else {
       const errorText = await response.text();
       console.error(`Payment submission failed with status ${response.status}:`, errorText);
