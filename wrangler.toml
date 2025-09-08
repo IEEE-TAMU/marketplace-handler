@@ -10,6 +10,8 @@ enabled = true
 
 [vars]
 API_BASE_URL = "https://portal.ieeetamu.org"
+# ALLOWED_SENDERS = "chnorton@tamu.edu,other@tamu.edu" # Comma-separated list of allowed email senders
 
 [env.dev.vars]
 API_BASE_URL = "http://localhost:4000"
+# ALLOWED_SENDERS = "chnorton@tamu.edu,test@example.com" # For development testing
