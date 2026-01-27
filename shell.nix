@@ -1,7 +1,7 @@
 {pkgs ? import <nixpkgs> {}}:
 pkgs.mkShellNoCC {
   nativeBuildInputs = [
-    pkgs.wrangler
+    # pkgs.wrangler
     pkgs.nodejs
   ];
 }
