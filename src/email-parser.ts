@@ -35,38 +35,52 @@ export async function parseEmailForData(
     parser.on('end', () => {
       // Extract data from the text content
 
+      const getLastMatch = (text: string, regex: RegExp) => {
+        const matches = [...text.matchAll(regex)];
+        if (matches.length === 0) return null;
+        return matches[matches.length - 1][1].trim();
+      };
+
       // Extract Order ID - pattern: "Order [order_id]"
-      const orderMatch = textContent.match(/Order\s+(\d+)/i);
-      if (orderMatch) {
-        extractedData.orderId = orderMatch[1];
+      const orderId = getLastMatch(textContent, /Order\s+(\d+)/gi);
+      if (orderId) {
+        extractedData.orderId = orderId;
       }
 
       // Extract Price per item - pattern: "Price per item: $X.XX"
-      const priceMatch = textContent.match(
-        /Price per item:\s*\$?(\d+\.\d{2})/i
+      const price = getLastMatch(
+        textContent,
+        /Price per item:\s*\$?(\d+\.\d{2})/gi
       );
-      if (priceMatch) {
-        extractedData.pricePerItem = `$${priceMatch[1]}`;
+      if (price) {
+        extractedData.pricePerItem = `$${price}`;
       }
 
       // Extract T-Shirt Size - pattern: "T-Shirt Size: [size]"
-      const tshirtMatch = textContent.match(/T-Shirt Size:\s*([A-Z]+)/i);
-      if (tshirtMatch) {
-        extractedData.tshirtSize = tshirtMatch[1];
+      const tshirtSize = getLastMatch(
+        textContent,
+        /T-Shirt Size:\s*([A-Z]+)/gi
+      );
+      if (tshirtSize) {
+        extractedData.tshirtSize = tshirtSize;
       }
 
       // Extract Confirmation Code - pattern: "Confirmation Code: [code]"
-      const confirmationMatch = textContent.match(
-        /Confirmation Code:\s*([A-Z0-9]+)/i
+      const confirmationCode = getLastMatch(
+        textContent,
+        /Confirmation Code:\s*([A-Z0-9]+)/gi
       );
-      if (confirmationMatch) {
-        extractedData.confirmationCode = confirmationMatch[1];
+      if (confirmationCode) {
+        extractedData.confirmationCode = confirmationCode;
       }
 
       // Extract Billing Name - pattern: "Billing Name: [name]"
-      const billingMatch = textContent.match(/Billing Name:\s*([^\n\r]+)/i);
-      if (billingMatch) {
-        extractedData.billingName = billingMatch[1].trim();
+      const billingName = getLastMatch(
+        textContent,
+        /Billing Name:\s*([^\n\r]+)/gi
+      );
+      if (billingName) {
+        extractedData.billingName = billingName;
       }
 
       resolve(extractedData);
