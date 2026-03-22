@@ -10,7 +10,7 @@ interface Environment {
 
 // Helper function to get allowed senders from environment
 function getAllowedSenders(env: Environment): string[] {
-  const defaultSenders = ['chnorton@tamu.edu']; // Fallback for compatibility
+  const defaultSenders = ['ieee@tamu.edu']; // Fallback for compatibility
 
   if (!env.ALLOWED_SENDERS) {
     return defaultSenders;
