@@ -66,6 +66,7 @@ export async function parseEmailForData(
       }
 
       // Extract Confirmation Code - pattern: "Confirmation Code: [code]"
+      // Portal generates uppercase alphanumeric only (email prefix + timestamp).
       const confirmationCode = getLastMatch(
         textContent,
         /Confirmation Code:\s*([A-Z0-9]+)/gi
