@@ -3,7 +3,6 @@ import { MailParser } from 'mailparser';
 export interface ExtractedEmailData {
   billingName?: string;
   confirmationCode?: string;
-  tshirtSize?: string;
   pricePerItem?: string;
   orderId?: string;
 }
@@ -54,15 +53,6 @@ export async function parseEmailForData(
       );
       if (price) {
         extractedData.pricePerItem = `$${price}`;
-      }
-
-      // Extract T-Shirt Size - pattern: "T-Shirt Size: [size]"
-      const tshirtSize = getLastMatch(
-        textContent,
-        /T-Shirt Size:\s*([A-Z]+)/gi
-      );
-      if (tshirtSize) {
-        extractedData.tshirtSize = tshirtSize;
       }
 
       // Extract Confirmation Code - pattern: "Confirmation Code: [code]"

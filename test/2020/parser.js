@@ -32,13 +32,6 @@ const productLine = orderDetailsRaw[1][1];
 if (productLine) {
   orderDetails["product"] = productLine.replace(/\s\s+/g, " ").trim();
 }
-const tShirtLine = orderDetailsRaw[2][1];
-if (tShirtLine && tShirtLine.includes("T-Shirt")) {
-  const size = tShirtLine.split(":")[1];
-  if (size) {
-    orderDetails["shirt_size"] = size.trim();
-  }
-}
 
 const emailNode = root.querySelector("p:contains('Contact Email:')");
 let email = null;

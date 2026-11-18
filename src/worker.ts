@@ -130,7 +130,6 @@ export default {
 interface PaymentData {
   name: string;
   amount: number;
-  tshirt_size: string;
   id: string;
   confirmation_code: string;
 }
@@ -194,21 +193,12 @@ export function validatePaymentData(data: ExtractedEmailData): {
 
   if (!data.orderId) errors.push('Missing order ID');
   if (!data.billingName) errors.push('Missing billing name');
-  if (!data.tshirtSize) errors.push('Missing T-shirt size');
   if (!data.pricePerItem) errors.push('Missing price per item');
   if (!data.confirmationCode) errors.push('Missing confirmation code');
 
   // Validate price format
   if (data.pricePerItem && !data.pricePerItem.match(/^\$?\d+\.\d{2}$/)) {
     errors.push('Invalid price format');
-  }
-
-  // Validate T-shirt size
-  if (
-    data.tshirtSize &&
-    !['XS', 'S', 'M', 'L', 'XL', 'XXL'].includes(data.tshirtSize)
-  ) {
-    errors.push('Invalid T-shirt size');
   }
 
   return { isValid: errors.length === 0, errors };
@@ -244,7 +234,6 @@ export async function submitPayment(
   const paymentPayload: PaymentData = {
     name: extractedData.billingName!,
     amount: amount,
-    tshirt_size: extractedData.tshirtSize!,
     id: extractedData.orderId!,
     confirmation_code: extractedData.confirmationCode,
   };

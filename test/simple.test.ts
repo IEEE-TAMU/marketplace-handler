@@ -12,7 +12,6 @@ Content-Type: text/plain; charset=UTF-8
 
 Order 12345
 Price per item: $10.00
-T-Shirt Size: L
 Confirmation Code: TEST123
 Billing Name: Test Person
     `;
@@ -33,7 +32,6 @@ Billing Name: Test Person
     expect(result).toBeDefined();
     expect(result.orderId).toBe('12345');
     expect(result.pricePerItem).toBe('$10.00');
-    expect(result.tshirtSize).toBe('L');
     expect(result.confirmationCode).toBe('TEST123');
     expect(result.billingName).toBe('Test Person');
   });
